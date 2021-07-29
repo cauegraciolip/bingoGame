@@ -55,17 +55,49 @@ h1 {
     cursor: pointer;
 }
 
+#main {
+    display: block;
+    margin: auto;
+    width: 90%;
+}
+
 #ul {
     display: flex;
     flex-wrap: wrap;
     margin: 0.5rem;
 }
 
-li {
+#bingo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#bingo span {
+    padding: 0.4rem 1.2rem;
+    text-align: center;
+}
+
+.numSort {
     padding: 0.7rem;
     background-color: whitesmoke;
     border: 1px solid silver;
     margin: 0.5rem;
     border-radius: 0.3rem;
    
+}
+
+#numCartela {
+    display: flex;
+    justify-content: space-between;
+}
+
+li {
+    display: block;
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0.3rem;
+    border-radius: 0.3rem;
+    border: 1px solid black;
+
 }
