@@ -20,16 +20,16 @@ function cartela() {
     numeroG = ""
     numeroO = ""
 
-    while ( numB.length < 5 ) {
+    if ( numB.indexOf(numeroB ) == -1 ) {
 
-        numeroB = random(1, 15)
-        numB.push(numeroB)
+        while ( numB.length < 5 ) {
 
-        if ( numB.indexOf(numeroB) == -1 ) {
             numeroB = random(1, 15)
             numB.push(numeroB)
             localStorage.setItem('numB', JSON.stringify(numB))
+
         }
+
     }
     
     if ( numI.indexOf(numeroI) == -1 ) {
@@ -43,7 +43,7 @@ function cartela() {
 
     if ( numN.indexOf(numeroN) == -1 ) {
 
-        while ( numN.length < 5 ) {
+        while ( numN.length < 4 ) {
             
             numeroN = random(31, 45)
             numN.push(numeroN)
@@ -70,35 +70,56 @@ function cartela() {
             localStorage.setItem('numO', JSON.stringify(numO))
 
         }
-
-        
-
     }
+
+    let colB = document.getElementById('b')
+    let colI = document.getElementById('i')
+    let colN = document.getElementById('n')
+    let colG = document.getElementById('g')
+    let colO = document.getElementById('o')
+
+    let contentColB = ""
+    let contentColI = ""
+    let contentColN = ""
+    let contentColG = ""
+    let contentColO = ""
+
+
+    numB.forEach(element => {
+        
+        contentColB += `<li>${element}</li>`
+
+    });
+    numI.forEach(element => {
+        
+        contentColI += `<li>${element}</li>`
+
+    });
+    numN.forEach(element => {
+        
+        contentColN += `<li>${element}</li>`
+
+    });
+    numG.forEach(element => {
+        
+        contentColG += `<li>${element}</li>`
+
+    });
+    numO.forEach(element => {
+        
+        contentColO += `<li>${element}</li>`
+
+    });
+
+    colB.innerHTML = contentColB
+    colI.innerHTML = contentColI
+    colN.innerHTML = contentColN
+    colG.innerHTML = contentColG
+    colO.innerHTML = contentColO
+
 }
 
 cartela()
-
-console.log(numB)
-console.log(numI)
-console.log(numN)
-console.log(numG)
-console.log(numO)
-
-function preencher() {
-
-    let cartela = document.getElementById('ul')
-
-    let content = ""
-
-    numeros.forEach(element => {
-        
-        content += `<li class="numSort">${element}</li>`
- 
-    });
-    cartela.innerHTML = content
-}
-
-preencher()
 
 function sortear(min, max) {
 
@@ -126,5 +147,37 @@ function reset() {
     onload()
 
 }
-
 console.log(numeros)
+
+let d = document.getElementById('display')
+
+for ( i in numeros ) {
+
+    let num = numeros[i]
+
+    d.innerHTML = num
+
+    if ( num <= 15 ) {
+
+        d.innerHTML = `B - ${num}`
+
+    } else if ( num <= 30 ) {
+
+        d.innerHTML = `I - ${num}`
+
+    } else if ( num <= 45 ) {
+
+        d.innerHTML = `N - ${num}`
+
+    } else if ( num <= 60 ) {
+
+        d.innerHTML = `G - ${num}`
+
+    } else {
+
+        d.innerHTML = `O - ${num}`
+
+    }
+
+}
+
